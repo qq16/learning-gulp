@@ -2,8 +2,9 @@ import 'reflect-metadata';
 
 function logParamTypes(target: any, key: string) {
   const t = Reflect.getMetadata('design:paramtypes', target, key);
+  const r = Reflect.getMetadata('design:returntype', target, key);
   const s = t.map((i:{name:string})=>i.name).join();
-  console.log(`${key} type: ${s}`);
+  console.log(`${key} type: ${s} ${r.name}`);
 }
 
 declare interface IFoo {
